@@ -6,15 +6,15 @@ This is a setup script I'm using to set up a basic webserver that will run a sen
 
 - Installs NginX
     + Install global config with gzip and caching
-    + Install a default server with phpinfo
+    + Install a default server with phpinfo to webroot
     + Password protect direct ip access
 - Installs MariaDB
-    + Rund mysql_secure_installation after installation
+    + Run mysql_secure_installation after installation
 - Installs PHp7
-- Sets up automatric security updates
+- Sets up automatic security updates
 - Enable firewall
     + Deny all incoming
-    + Allow SSh, HTTP, HTTPS
+    + Allow SSH, HTTP, HTTPS
 
 ## sendy-adminer.sh
 
@@ -26,7 +26,7 @@ This is a setup script I'm using to set up a basic webserver that will run a sen
     + xmlreader
     + simplexml
     + gd
-- Download adminer to default server root (//server_ip/adminer)
+- Download adminer to default server root (//server_ip/adminer/)
 
 ## swapfile.sh
 
