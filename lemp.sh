@@ -1,5 +1,17 @@
 #!/bin/bash
 
+# Grab user input
+echo -e "\nThis script installs a phpinfo and Adminer."
+echo "These show system info and allow database access."
+echo "For security purposes we will add a username and password."
+echo -e "You will be asked for this password when visiting the server IP directly.\n"
+
+echo -e "\nWhat username do you want to use to log into the default test server? [Enter when done]:"
+read nguser
+
+echo -e "\nWhat password do you want to use to log into the default test server? [Enter when done]:"
+read ngpass
+
 ## Vars ##
 workerprocesses=$(grep processor /proc/cpuinfo | wc -l)
 workerconnections=$(ulimit -n)
@@ -59,6 +71,8 @@ server {
     # Serving files
     location / {
         try_files $uri $uri/ /index.php;
+        auth_basic "Restricted Content";
+        auth_basic_user_file /etc/nginx/.htpasswd;
     }
     # Use php
     location ~ \.php$ {
@@ -110,6 +124,11 @@ ln -s /etc/nginx/sites-available/default.conf /etc/nginx/sites-enabled/default.c
 echo -e "\ncgi.fix_pathinfo=0" >> /etc/php/7.0/fpm/php.ini
 dpkg-reconfigure --priority=low unattended-upgrades
 mysql_secure_installation
+
+# Nginx password for direct ip access #
+echo -n "$nguser:" >> /etc/nginx/.htpasswd
+openssl passwd -apr1 $ngpass >> /etc/nginx/.htpasswd
+
 
 ## Restarts ##
 service php7.0-fpm restart

@@ -11,5 +11,4 @@ phpenmod simplexml
 phpenmod gd
 service php7.0-fpm restart
 mkdir /var/www/localhost/adminer
-rm /var/www/localhost/index.php
 wget -O /var/www/localhost/adminer/index.php https://www.adminer.org/latest-mysql-en.php
