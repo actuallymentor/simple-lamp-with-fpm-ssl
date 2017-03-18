@@ -10,7 +10,7 @@ echo -e "\nWhat username do you want to use to log into the default test server?
 read nguser
 
 echo -e "\nWhat password do you want to use to log into the default test server? [Enter when done]:"
-read ngpass
+read -s ngpass
 
 ## Vars ##
 workerprocesses=$(grep processor /proc/cpuinfo | wc -l)
