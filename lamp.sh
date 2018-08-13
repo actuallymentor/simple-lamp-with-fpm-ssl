@@ -24,6 +24,9 @@ mainconfig="
         SSLCertificateFile /etc/letsencrypt/live/$fqdn/fullchain.pem
         SSLCertificateKeyFile /etc/letsencrypt/live/$fqdn/privkey.pem
         Include /etc/letsencrypt/options-ssl-apache.conf
+        <Directory \"$fqdn\">
+            AllowOverride All
+        </Directory>
         <FilesMatch \.php$>
             SetHandler "proxy:unix:/var/run/php/php7.0-fpm.sock\|fcgi://localhost/"
         </FilesMatch>
@@ -61,8 +64,8 @@ echo '<IfModule mod_dir.c>
     DirectoryIndex index.php index.html
 </IfModule>' > /etc/apache2/mods-enabled/dir.conf
 
-
-echo "<?php phpinfo(); ?>" > /var/www/html/info.php
+mkdir -p "/var/www/$fqdn"
+echo "<?php phpinfo(); ?>" > "/var/www/$fqdn/info.php"
 
 ## Security ##
 echo -e "\ncgi.fix_pathinfo=0" >> /etc/php/7.0/fpm/php.ini
