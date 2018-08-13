@@ -65,7 +65,7 @@ echo "<?php phpinfo(); ?>" > /var/www/html/info.php
 
 ## Security ##
 echo -e "\ncgi.fix_pathinfo=0" >> /etc/php/7.0/fpm/php.ini
-dpkg-reconfigure --priority=low unattended-upgrades
+#dpkg-reconfigure --priority=low unattended-upgrades
 mysql_secure_installation
 
 
