@@ -1,4 +1,4 @@
-# LAPM ( Linux, Apache, MariaDB, PHP7 ) setup script
+# LAMP ( Linux, Apache, MariaDB, PHP7 ) setup script
 
 This is a setup script I'm using to set up a basic webserver that will run a sendy.co installation.
 
