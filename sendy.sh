@@ -10,5 +10,3 @@ phpenmod xmlreader
 phpenmod simplexml
 phpenmod gd
 service php7.0-fpm restart
-mkdir /var/www/localhost/adminer
-wget -O /var/www/localhost/adminer/index.php https://www.adminer.org/latest-mysql-en.php

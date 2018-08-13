@@ -1,8 +1,8 @@
-# LEMP ( Linux, NginX, MariaDB, PHP7 ) setup script
+# LAPM ( Linux, Apache, MariaDB, PHP7 ) setup script
 
 This is a setup script I'm using to set up a basic webserver that will run a sendy.co installation.
 
-## lemp.sh
+## lamp.sh
 
 - Installs NginX
     + Install global config with gzip and caching
@@ -10,15 +10,19 @@ This is a setup script I'm using to set up a basic webserver that will run a sen
     + Password protect direct ip access
 - Installs MariaDB
     + Run mysql_secure_installation after installation
-- Installs PHp7
+- Installs PHP7
 - Sets up automatic security updates
 - Enable firewall
     + Deny all incoming
     + Allow SSH, HTTP, HTTPS
 
-## sendy-adminer.sh
+## enable-ssl.sh
+- Install certbot
+- Get ssl for domain
 
-- Install php-modules needed for adminer and sendy
+## sendy.sh
+
+- Install php-modules needed for sendy
     + mcrypt
     + mbstring
     + curl
@@ -26,7 +30,6 @@ This is a setup script I'm using to set up a basic webserver that will run a sen
     + xmlreader
     + simplexml
     + gd
-- Download adminer to default server root (//server_ip/adminer/)
 
 ## swapfile.sh
 
