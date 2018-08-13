@@ -38,6 +38,7 @@ apt install -y apache2 ufw mariadb-server php-fpm php libapache2-mod-fastcgi php
 
 # Enable modules
 a2enmod proxy proxy_fcgi
+a2enmod rewrite
 
 # Configuration
 echo "
